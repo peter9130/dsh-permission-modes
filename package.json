@@ -1,7 +1,6 @@
 {
   "name": "dsh-permission-modes",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.0.1",
   "type": "module",
   "description": "Two independent composer controls over the DSH permission presets: file permission (sandbox) and approval policy, each switching one dimension with six presets behind them.",
   "exports": {
@@ -48,5 +47,8 @@
     "sandbox",
     "approval",
     "web-ui"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
