@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Permission modes",
+    "description": "Two independent composer controls: File permission (Read only / Workspace write / Full access) and Approval (Ask me / No prompts). Six presets cover three sandboxes × two approval modes, and each control moves one dimension. \"No prompts\" means actions that need authorization are allowed without asking (a host-side approval/request answerer), not rejected; switching to it still asks once. Editing the preset table or host half requires a DSH restart or a disable/enable in the plugin manager."
+  }
+}

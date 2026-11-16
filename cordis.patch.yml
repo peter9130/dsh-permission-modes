@@ -1,0 +1,42 @@
+# Permission modes bundle patch.
+#
+# 1. Six permission presets: every sandbox mode crossed with the two approval
+#    modes. `ask` presets delegate to the deployment's answerers (the Web UI
+#    asks you); `*-auto` presets also carry `ask` because the approval policy
+#    union is closed to `ask | never` — their "agree without asking" behaviour
+#    comes from this bundle's prepended `approval/request` answerer in index.js,
+#    which returns `allowed-once` while the Session's preset is one of these
+#    three. `never` is deliberately unused: it rejects instead of agreeing.
+#
+#      read-only | workspace-write | danger-full-access
+#        x  ask (手动批准)  x  auto (无需确认)
+#
+#    The three `ask` ids keep the stock names, so an existing stored default and
+#    recorded session selections still resolve.
+# 2. The Host row carrying this bundle's browser half (and the answerer).
+- id: permission
+  name: '@deepseek-ai/dsh-permission-presets'
+  config:
+    presets:
+      read-only:
+        sandbox: read-only
+        approval: ask
+      workspace-write:
+        sandbox: workspace-write
+        approval: ask
+      danger-full-access:
+        sandbox: danger-full-access
+        approval: ask
+      read-only-auto:
+        sandbox: read-only
+        approval: ask
+      workspace-write-auto:
+        sandbox: workspace-write
+        approval: ask
+      danger-full-access-auto:
+        sandbox: danger-full-access
+        approval: ask
+    defaultPreset: workspace-write
+- insert:
+    - id: permission-modes
+      name: 'dsh-permission-modes'
