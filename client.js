@@ -21,7 +21,7 @@
  * so light/dark theming follows the host.
  */
 window.__ModuleLoader__.load({
-  id: '@local/dsh-permission-modes',
+  id: 'dsh-permission-modes',
   factory(require) {
     const React = require('react')
     const { createPortal } = require('react-dom'), h = React.createElement
